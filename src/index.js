@@ -5,8 +5,17 @@
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const router = require('./router/snapshot');
+const artTem = require('koa-art-template');
 
 const app = new Koa();
+
+// 配置 模版
+artTem(app, {
+  root: path.join(__dirname, 'template'), // template 地址
+  extname: '.html',
+  debug: process.env.NODE_ENV !== 'production'
+});
+
 
 app.use(bodyParser({
   enableTypes:['json', 'form', 'text']

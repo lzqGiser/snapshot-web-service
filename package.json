@@ -8,6 +8,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "koa": "^2.5.2",
+    "koa-art-template": "^1.1.1",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "phantom": "^6.0.3"

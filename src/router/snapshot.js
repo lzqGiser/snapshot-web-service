@@ -11,7 +11,7 @@ router.post('/snapshot', async function(ctx, next){
 
   let bodyParams = ctx.request.body;
 
-  console.log(bodyParams.viewPort)
+  console.log(bodyParams.clipRect)
 
   /*
   * @param <Number> width
@@ -42,17 +42,29 @@ router.post('/snapshot', async function(ctx, next){
 
   page.property('viewportSize', viewPortSize); //设置viewport
 
-  
+  page.property('clipRect',clipRect);
 
+  // ./template.html
+  const status = await page.open('https://www.baidu.com'); // 该步骤会将文件的内容转为代码字符串
 
+  const content = '<!DOCTYPE html><html lang="en"> <head> <meta charset="UTF-8"> <title>template</title> </head> <body style="background-color:red;"> <div>iodfiodfoidfoufoidiufoidifiodio</div> </body> </html>';  // 获取page
+
+  // setContent 接受两个参数，第一个参数是一个content, 为打开网页的代码字符串；
+  // 第二个参数为这个打开的网页设置url（可以任意定）
+  page.setContent(content, 'https://123');
+
+  page.render('./src/img/google_home.jpeg', {format: 'jpeg', quality: '100'})
+
+  console.log(status)
+
+  if(status === 'success'){
+
+  }
 
   await instance.exit(); // 退出phantom
 
 
 });
-
-
-
 
 
 module.exports = router;

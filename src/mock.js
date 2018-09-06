@@ -5,14 +5,14 @@
 const mock = {
   "htmlStr": "<html></html>",
   "viewPort": {
-    w: 1000,
-    h: 1080
+    "w": 1000,
+    "h": 1080
   },
   "clipRect": {
-    top: 100,
-    left: 100,
-    width: 100,
-    height: 100
+    "top": 140,
+    "left": 30,
+    "width": 400,
+    "height": 300
 
   },
   "config": {}
