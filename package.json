@@ -6,6 +6,7 @@
   "author": "lzq <1505615071@qq.com>",
   "license": "MIT",
   "dependencies": {
+    "art-template": "^4.13.0",
     "body-parser": "^1.18.3",
     "koa": "^2.5.2",
     "koa-art-template": "^1.1.1",
