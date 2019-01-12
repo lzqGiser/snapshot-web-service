@@ -1,4 +1,4 @@
-## snapshot-adunion-web-new
+## snapshot-web-service (未完！！)
 
 #### 依赖
 > koa、phantom、上传组件（使用自己的）、crypto（验证，node模块）、http模块、path模块
@@ -18,3 +18,7 @@ clipRect: <object>  top <number> 截图框的上边距；
                      bottom:<number> 截图框的高；
 
 config: <object> 配置参数
+
+#### 更新计划
+ （1）使用Puppeteer替代phantom
+ （2）引入资源池，保留Puppeteer的page实例，提高资源利用率，提升性能支出；

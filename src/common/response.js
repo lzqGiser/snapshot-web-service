@@ -10,9 +10,7 @@ module.exports = function response(ctx){
 		data: {}
 	};
 
-	let resState = {
-
-
+	const resState = {
 
 	}
 
@@ -22,9 +20,5 @@ module.exports = function response(ctx){
 		temResponse.msg = msg;
 		temResponse.data = data;
 		ctx.response = temResponse;
-
-
 	}
-
-
 };

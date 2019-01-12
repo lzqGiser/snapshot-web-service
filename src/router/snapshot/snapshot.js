@@ -36,7 +36,6 @@ module.exports = async function (ctx, next){
 
 	// 这里之后会改为两个渠道：1.支持外部直接传渲染好的模版字符串（html字符串）；2.支持使用本地模版，提供模版编号id 这部分涉及到template
 	let templateStr = bodyParams.htmlStr.toString(); // 强制转为字符串；
-
 	const instance = await phantom.create();
 	const page = await instance.createPage();
 
@@ -55,9 +54,7 @@ module.exports = async function (ctx, next){
 		// setContent 接受两个参数，第一个参数是一个content, 为打开网页的代码字符串；
 		// 第二个参数为这个打开的网页设置url（可以任意定）
 		await page.setContent(content, './123.html'); // 这里是一个异步的过程，需要等待page将content的内容展开
-
 		const targetPath = path.join(__dirname, `../../img/home${new Date().valueOf()}.png`);
-
 		let loadFinishedPromise = new Promise(function(resolve, reject){
 			const timer = setTimeout(function(){
 				console.log('phantom 处理超时！！');
@@ -73,9 +70,7 @@ module.exports = async function (ctx, next){
 		});
 
 		await loadFinishedPromise;
-
 		const status = await page.render(targetPath, {format: 'png', quality: '10'});
-
 		if(status) console.log(`result img path is ${targetPath}`);
 
 	}catch(e){
@@ -83,4 +78,4 @@ module.exports = async function (ctx, next){
 	}
 	await instance.exit(); // 退出phantom
 	await next();
-}
+};
